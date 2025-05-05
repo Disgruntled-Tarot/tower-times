@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}The Tower Times{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <h1 class="logo"><a href="{% url 'home' %}">The Tower Times</a></h1>
+      <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'reading_table' %}">The Reading Table</a></li>
+            <li><a href="{% url 'veil' %}">The Veil</a></li>
+            <li><a href="{% url 'tools' %}">Tools</a></li>
+            <li><a href="{% url 'messages' %}">Messages</a></li>
+          </ul>          
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+  <script>
+    const quotes = [
+      "“You will know the truth, and the truth will set you free.” – John 8:32",
+      "“The matrix is a system, Neo. That system is our enemy.” – Morpheus",
+      "“It is no measure of health to be well adjusted to a profoundly sick society.” – Jiddu Krishnamurti",
+      "“When the student is ready, the teacher will appear.” – Zen proverb",
+      "“The truth is like a lion; you don’t have to defend it. Let it loose. It will defend itself.” – Augustine",
+      "“Most people do not really want freedom, because freedom involves responsibility.” – Freud",
+      "“The veil is thin for those who dare to look.” – Unknown"
+    ];
+  
+    let index = 0;
+    const quoteEl = document.getElementById("quote-text");
+  
+    function showNextQuote() {
+      quoteEl.classList.add("fade-out");
+  
+      setTimeout(() => {
+        index = (index + 1) % quotes.length;
+        quoteEl.innerText = quotes[index];
+        quoteEl.classList.remove("fade-out");
+      }, 1000); // match this with your CSS fade duration
+    }
+  
+    setInterval(showNextQuote, 7000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %}
+
+{% block title %}The Reading Table | The Tower Times{% endblock %}
+
+{% block content %}
+<section class="page-content">
+  <h2>The Reading Table</h2>
+  <p>Insights, observations, and tarot-guided reflections.</p>
+
+  {% for post in posts %}
+    <div class="blog-post">
+      <h3>{{ post.title }}</h3>
+      <p class="date">{{ post.created_at|date:"F j, Y" }}</p>
+      <p>{{ post.content|truncatewords:40 }}</p>
+      <a href="{% url 'post_detail' post.slug %}">Read More</a>
+    </div>
+  {% empty %}
+    <p>No posts yet.</p>
+  {% endfor %}
+</section>
+{% endblock %}
+
