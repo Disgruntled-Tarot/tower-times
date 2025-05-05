@@ -3,39 +3,71 @@
 {% block title %}The Tower Times{% endblock %}
 
 {% block content %}
-<section class="intro fade-in" style="--delay: 0.1s;">
+<header class="masthead fade-in" style="--delay: 0.1s;">
   <h1>The Tower Times</h1>
-  <p class="fade-in" style="--delay: 0.3s;">
-    I was raised by a father who came from Mexico with nothing but grit and a warning:
-    <em>“Don’t rely on the government. They’ll change the rules when it benefits them.”</em>
+  <p class="tagline">News from beneath the illusion</p>
+</header>
+
+<section class="intro fade-in" style="--delay: 0.2s;">
+  <p class="fade-in" style="--delay: 0.4s;">
+    I grew up being told not to trust the government, not to believe the news, and to always question what I was shown.  
+    Now I’m watching the very people who used to say that—either go silent, disappear, or nod along to a world unraveling.
   </p>
-  <p class="fade-in" style="--delay: 0.5s;">
-    I believed in hard work—so much that I gave it everything. My time, my health, my relationships.
-    I didn’t watch the system collapse. <strong>I lived inside it while it quietly folded around me.</strong>
+  <p class="fade-in" style="--delay: 0.6s;">
+    The signs are there. We scream that the rich are the problem, yet when the pieces start falling, everyone looks the other way.  
+    We're distracted. Divided. Entertained to death. And somewhere behind the noise, something deeper is breaking.
   </p>
-  <p class="fade-in" style="--delay: 0.7s;">
-    Loss, debt, burnout, and emotional silence became familiar terrain. But when the system stopped making sense,
-    I realized: <strong>it was working exactly as designed—just not for people like me.</strong>
+  <p class="fade-in" style="--delay: 0.8s;">
+    I didn’t watch the system collapse. I lived inside it while it quietly folded around me—through burnout, debt, grief, and the illusion of success.
   </p>
-  <p class="fade-in" style="--delay: 0.9s;">
-    <em>The Tower Times</em> is for anyone waking up in the middle of the storm—still here, still aware,
-    and ready to see what lies beyond the illusion.
+  <p class="fade-in" style="--delay: 1s;">
+    This project isn’t about fear. It’s about clarity.  
+    <strong>The Tower Times</strong> is for anyone waking up mid-collapse—still here, still aware, and ready to look past the veil.
   </p>
 </section>
 
-<!-- Section Divider -->
-<h2 class="section-title fade-in" style="--delay: 1.1s;">🧭 Choose Your Path</h2>
+<hr class="fade-in" style="--delay: 1.2s;" />
 
-<div class="path-grid fade-in" style="--delay: 1.3s;">
-  <a href="{% url 'reading_table' %}" class="path-card">📖 The Reading Table</a>
-  <a href="{% url 'veil' %}" class="path-card">🎭 The Veil</a>
-  <a href="{% url 'tools' %}" class="path-card">🛠️ Tools for Awareness</a>
-  <a href="{% url 'messages' %}" class="path-card">📬 Messages from the Collective</a>
-</div>
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-inner">
+    <h1>What You’re Being Shown<br>vs<br>What’s Really Unfolding</h1>
+    <p>Unravel the illusion. Follow the thread.</p>
+    <div class="hero-buttons">
+      <a href="{% url 'displayed' %}" class="path-button">📰 Displayed Narrative</a>
+      <a href="{% url 'hidden' %}" class="path-button">🕯️ Hidden Thread</a>
+    </div>
+  </div>
+</section>
 
-<!-- Quote Rotator -->
-<div class="quote-rotator fade-in" style="--delay: 1.6s;">
-  <p id="quote-text">"What is true is often not obvious. What is obvious is often not true."</p>
-</div>
+<!-- Featured Exposé -->
+<section class="featured-expose">
+  <h2>🧨 Featured Exposé</h2>
+  <h3>The Veil Slips Near D.C.</h3>
+  <p>Was the Blackhawk incident really a training crash? Or something intercepted over protected airspace?</p>
+  <a href="{% url 'hidden' %}" class="expose-button">Read More 🕯️</a>
+</section>
+
+<!-- Dual Prediction Teasers -->
+<section class="prediction-snapshot">
+  <div class="prediction-grid">
+    <div class="prediction-card">
+      <h3>📺 Displayed Narrative</h3>
+      <p>Biden prepares to attend climate summit in Europe.</p>
+      <a href="{% url 'displayed' %}">Explore ➜</a>
+    </div>
+    <div class="prediction-card">
+      <h3>🔍 Hidden Thread</h3>
+      <p>Multiple "accidents" near strategic airbases signal COG activity.</p>
+      <a href="{% url 'hidden' %}">Investigate ➜</a>
+    </div>
+  </div>
+</section>
+
+<!-- Tarot Quote Rotator -->
+<section class="quote-rotator">
+  <p id="quote-text">“The Tower does not fall without revealing the truth beneath.”</p>
+</section>
+
 {% endblock %}
 

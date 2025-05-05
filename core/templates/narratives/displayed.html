@@ -1,0 +1,33 @@
+{# templates/narratives/displayed.html #}
+{% extends 'core/base.html' %}
+{% block content %}
+<div class="page-content fade-in">
+  <h2>The Displayed Narrative</h2>
+  <p>This timeline follows the official story — the one portrayed by headlines, government briefings, and mainstream media outlets.</p>
+  <p>Here, we’ll track current events as they’re presented, and outline what this version of reality expects will happen next.</p>
+  <div class="news-card">
+    <h3>📰 Most Recent Headline</h3>
+    <p>Example update pulled from mainstream news (manually or via API later).</p>
+    <p class="byline">As seen on major outlets</p>
+  </div>
+</div>
+
+<div class="section-title">🧠 Prediction Tracker</div>
+
+<div class="tracker-grid">
+  {% for prediction in predictions %}
+    <div class="news-card">
+      <h3>{{ prediction.prediction }}</h3>
+      <p>Status: <strong>{{ prediction.status|title }}</strong></p>
+      {% if prediction.outcome_notes %}
+        <p><em>{{ prediction.outcome_notes }}</em></p>
+      {% endif %}
+      <p class="byline">Added on {{ prediction.added_on|date:"F j, Y" }}</p>
+    </div>
+  {% empty %}
+    <p>No predictions added yet. Check back soon.</p>
+  {% endfor %}
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{# templates/narratives/hidden.html #}
+{% extends 'core/base.html' %}
+{% block content %}
+<div class="page-content fade-in">
+  <h2>The Hidden Thread</h2>
+  <p>This timeline follows an alternate understanding — a behind-the-scenes narrative where silence, misdirection, and strategic restraint expose the true power struggle underway.</p>
+  <p>We’ll track how events deviate from the official narrative, and highlight patterns that support a deeper reality unfolding.</p>
+  <div class="news-card">
+    <h3>🕯️ The Most Recent Crack</h3>
+    <p>A hand-picked example of irregularity, anomaly, or contradiction in the mainstream version of events.</p>
+    <p class="byline">Analyzed through a critical lens</p>
+  </div>
+</div>
+
+<div class="section-title">🧠 Prediction Tracker</div>
+
+<div class="tracker-grid">
+  {% for prediction in predictions %}
+    <div class="news-card">
+      <h3>{{ prediction.prediction }}</h3>
+      <p>Status: <strong>{{ prediction.status|title }}</strong></p>
+      {% if prediction.outcome_notes %}
+        <p><em>{{ prediction.outcome_notes }}</em></p>
+      {% endif %}
+      <p class="byline">Added on {{ prediction.added_on|date:"F j, Y" }}</p>
+    </div>
+  {% empty %}
+    <p>No predictions added yet. Check back soon.</p>
+  {% endfor %}
+</div>
+{% endblock %}

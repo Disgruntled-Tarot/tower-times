@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import BlogPost
 from django.shortcuts import get_object_or_404
+from .models import NarrativePrediction
 
 def post_detail(request, slug):
     post = get_object_or_404(BlogPost, slug=slug, published=True)
@@ -27,3 +28,12 @@ def reading_table(request):
 
 def veil(request):
     return render(request, 'core/veil.html')
+
+def displayed_view(request):
+    predictions = NarrativePrediction.objects.filter(narrative_type='displayed').order_by('-added_on')
+    return render(request, 'narratives/displayed.html', {'predictions': predictions})
+
+
+def hidden_view(request):
+    predictions = NarrativePrediction.objects.filter(narrative_type='hidden').order_by('-added_on')
+    return render(request, 'narratives/hidden.html', {'predictions': predictions})
