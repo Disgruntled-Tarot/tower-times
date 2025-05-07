@@ -1,33 +1,95 @@
-{# templates/narratives/displayed.html #}
 {% extends 'core/base.html' %}
 {% block content %}
-<div class="page-content fade-in">
-  <h2>The Displayed Narrative</h2>
-  <p>This timeline follows the official story — the one portrayed by headlines, government briefings, and mainstream media outlets.</p>
-  <p>Here, we’ll track current events as they’re presented, and outline what this version of reality expects will happen next.</p>
-  <div class="news-card">
-    <h3>📰 Most Recent Headline</h3>
-    <p>Example update pulled from mainstream news (manually or via API later).</p>
-    <p class="byline">As seen on major outlets</p>
+
+<div class="container py-5">
+  <h1 class="mb-4 text-primary">Displayed Narrative</h1>
+
+  <div class="mb-5">
+    <p class="fs-5 text-light">
+      This is the publicly accepted version of events—the mainstream narrative as conveyed through government statements, major news outlets, and institutional channels.
+    </p>
+    <p class="text-light">
+      According to this version, the United States remains politically stable, the electoral process is intact, and recent economic and geopolitical developments are being addressed through normal democratic processes.
+    </p>
+  </div>
+
+  <hr class="text-secondary">
+
+  <div class="mt-5">
+    <h3 class="text-light">Narrative Overview</h3>
+
+    <div class="mt-4">
+      <h5 class="text-primary">I. Election Results</h5>
+      <p class="text-light">
+        The 2024 election was historic, with high voter turnout and a competitive race. Despite initial controversies, all legal challenges have been resolved through proper judicial channels. Trump’s victory is seen as a legitimate expression of voter will.
+      </p>
+
+      <h5 class="text-primary">II. Institutional Stability</h5>
+      <p class="text-light">
+        Federal agencies and the military continue to function under civilian oversight. National security remains intact, and intelligence agencies are focused on ongoing global threats including cyber warfare and misinformation.
+      </p>
+
+      <h5 class="text-primary">III. Economic Outlook</h5>
+      <p class="text-light">
+        Inflation is under gradual control. Interest rates and housing policy are calibrated to balance economic growth with affordability. Tariffs and trade adjustments are part of a strategy to revitalize domestic production.
+      </p>
+
+      <h5 class="text-primary">IV. Public Discourse</h5>
+      <p class="text-light">
+        Social media platforms and mainstream outlets aim to reduce misinformation while supporting a free and open internet. Efforts to curb disinformation are seen as necessary in a post-truth media landscape.
+      </p>
+
+      <h5 class="text-primary">V. What To Expect</h5>
+      <ul class="text-light">
+        <li>Continued focus on national security and international diplomacy</li>
+        <li>Rollout of AI governance and ethical frameworks</li>
+        <li>Infrastructure investments to stimulate the economy</li>
+        <li>Promotion of unity through bipartisan messaging</li>
+        <li>Efforts to maintain election integrity and reduce polarization</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="text-secondary mt-5">
+
+<div class="mt-5">
+  <h3 class="text-primary">What You Can Do</h3>
+  <p class="text-light">
+    Even within the mainstream narrative, it’s clear that **public vigilance and civic action** remain essential. As policies unfold, citizens must remain engaged — not just as spectators, but as advocates for fairness, equity, and accountability.
+  </p>
+
+  <ul class="text-light">
+    <li><strong>Hold leadership accountable:</strong> Demand honest answers about how current economic policies are impacting working families. Push for transparency around decisions that appear to disproportionately benefit the wealthy.</li>
+    <li><strong>Engage with town halls:</strong> Show up, ask questions, and press for real dialogue — not just talking points. Record and share moments where officials are pressed on key issues.</li>
+    <li><strong>Organize economic resistance:</strong> Support boycotts or divestment from corporations shown to influence policy at the expense of public well-being. Push for campaign finance reform and anti-monopoly action.</li>
+    <li><strong>Promote civic unity, not silence:</strong> Bipartisanship should not be a mask for corporate alignment. Push for collaboration that centers community needs, not elite agendas.</li>
+    <li><strong>Vote strategically, not blindly:</strong> Understand who funds your candidates. Track their donors. Support those with consistent, people-first platforms and a history of transparency.</li>
+  </ul>
+
+  <p class="text-light mt-3">
+    Democracy doesn’t end at the ballot box — it requires constant pressure. The sooner we challenge the quiet erosion of economic fairness, the faster we shift the trajectory away from elite-driven policy paralysis.
+  </p>
+</div>
+
+  <hr class="text-secondary mt-5">
+
+  <div class="mt-5">
+    <h3 class="text-light">Mainstream Projections</h3>
+
+    {% if predictions %}
+      <ul class="list-group mt-3">
+        {% for prediction in predictions %}
+          <li class="list-group-item bg-dark text-light border-secondary">
+            <strong>{{ prediction.title }}</strong><br>
+            <small class="text-muted">{{ prediction.added_on|date:"F j, Y" }}</small>
+            <p class="mt-2">{{ prediction.content|linebreaks }}</p>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="text-muted">No mainstream predictions available at this time.</p>
+    {% endif %}
   </div>
 </div>
-
-<div class="section-title">🧠 Prediction Tracker</div>
-
-<div class="tracker-grid">
-  {% for prediction in predictions %}
-    <div class="news-card">
-      <h3>{{ prediction.prediction }}</h3>
-      <p>Status: <strong>{{ prediction.status|title }}</strong></p>
-      {% if prediction.outcome_notes %}
-        <p><em>{{ prediction.outcome_notes }}</em></p>
-      {% endif %}
-      <p class="byline">Added on {{ prediction.added_on|date:"F j, Y" }}</p>
-    </div>
-  {% empty %}
-    <p>No predictions added yet. Check back soon.</p>
-  {% endfor %}
-</div>
-
 
 {% endblock %}

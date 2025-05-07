@@ -1,0 +1,26 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="container py-5">
+  <h1 class="mb-4 text-light">Exposés</h1>
+  <p class="text-secondary mb-5">A collection of published investigations, timelines, and narrative breakdowns.</p>
+
+  <div class="row g-4">
+    {% for expose in exposes %}
+      <div class="col-md-6">
+        <div class="card h-100 bg-dark text-light border border-secondary shadow-sm">
+          <div class="card-body d-flex flex-column">
+            <h3 class="card-title">{{ expose.title }}</h3>
+            <p class="card-text text-muted small">{{ expose.created_at|date:"F j, Y" }}</p>
+            <p>{{ expose.get_markdown|striptags|truncatewords:40 }}</p>
+            <a href="{% url 'expose_detail' expose.slug %}" class="btn btn-outline-light mt-auto">Read More</a>
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <p class="text-light">No exposés available at the moment.</p>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

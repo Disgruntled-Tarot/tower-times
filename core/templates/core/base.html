@@ -1,52 +1,60 @@
-{% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  {% load static %}
   <meta charset="UTF-8">
-  <title>The Tower Times</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tower Times</title>
+
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom Styles (optional override) -->
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
 </head>
 <body>
-
-  <!-- ===== Navbar ===== -->
-  <header class="navbar">
-    <div class="container">
-      <div class="logo">
-        <a href="{% url 'home' %}">🕯️ The Tower Times</a>
+    <div class="bg-warning text-dark text-center py-2 small">
+        This project explores two sides of the same story. You decide what to believe.
       </div>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-primary" href="{% url 'home' %}">Tower Times</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
   
-      <div id="navbar-links">
-        <ul>
-          <li><a href="{% url 'reading_table' %}">Reading Table</a></li>
-          <li><a href="{% url 'veil' %}">The Veil</a></li>
-          <li><a href="{% url 'tools' %}">Tools</a></li>
-          <li><a href="{% url 'messages' %}">Messages</a></li>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="{% url 'displayed' %}">Displayed</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'hidden' %}">Hidden</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'exposes' %}">Exposés</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'tools' %}">Tools</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'messages' %}">Messages</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
         </ul>
       </div>
-  
-      <div class="menu-toggle" id="mobile-menu">&#9776;</div>
     </div>
-  </header>
+  </nav>
   
 
-  <!-- ===== Page Content ===== -->
-  <main>
-    {% block content %}
-    <!-- Page-specific content goes here -->
-    {% endblock %}
-  </main>
+<!-- Main Content -->
+<main class="container py-4">
+  {% block content %}
+  {% endblock %}
+</main>
 
-  <!-- ===== JavaScript ===== -->
-  <script>
-    const menuToggle = document.getElementById('mobile-menu');
-    const navbarLinks = document.getElementById('navbar-links');
+<!-- Footer -->
+<footer class="bg-dark text-center text-light py-4 mt-5">
+    <p class="mb-1">&copy; {{ year|default:"2025" }} Tower Times. All rights reserved.</p>
+    <small class="text-muted d-block">
+      Portions of this site were built using AI tools — thoughtfully integrated to support clarity, not replace it.
+    </small>
+  </footer>
+  
 
-    menuToggle.addEventListener('click', () => {
-      navbarLinks.classList.toggle('open');
-    });
-  </script>
-
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -1,10 +1,31 @@
 {% extends 'core/base.html' %}
-
-{% block title %}Tools | The Tower Times{% endblock %}
-
 {% block content %}
-  <section class="page-content">
-    <h2>Tools</h2>
-    <p>This is where blog-style insights and tarot reflections will live.</p>
-  </section>
+
+<div class="container py-5">
+  <h1 class="mb-4 text-info">Tools & Trackers</h1>
+  <p class="fs-5">These tools are here to help make sense of complex events, timelines, and media manipulation tactics. More will be added soon.</p>
+
+  <div class="row mt-4 g-4">
+    <div class="col-md-6">
+      <div class="card bg-dark text-white border-info h-100">
+        <div class="card-body">
+          <h5 class="card-title">Narrative Timeline Viewer</h5>
+          <p class="card-text">See both the displayed and hidden narratives side-by-side over time.</p>
+          <a href="#" class="btn btn-outline-info disabled">Coming Soon</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card bg-dark text-white border-info h-100">
+        <div class="card-body">
+          <h5 class="card-title">Election Report Tracker</h5>
+          <p class="card-text">Monitor official reports like FEC, ODNI, and media silence patterns in one place.</p>
+          <a href="#" class="btn btn-outline-info disabled">Coming Soon</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 {% endblock %}

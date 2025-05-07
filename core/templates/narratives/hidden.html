@@ -1,31 +1,99 @@
-{# templates/narratives/hidden.html #}
 {% extends 'core/base.html' %}
 {% block content %}
-<div class="page-content fade-in">
-  <h2>The Hidden Thread</h2>
-  <p>This timeline follows an alternate understanding — a behind-the-scenes narrative where silence, misdirection, and strategic restraint expose the true power struggle underway.</p>
-  <p>We’ll track how events deviate from the official narrative, and highlight patterns that support a deeper reality unfolding.</p>
-  <div class="news-card">
-    <h3>🕯️ The Most Recent Crack</h3>
-    <p>A hand-picked example of irregularity, anomaly, or contradiction in the mainstream version of events.</p>
-    <p class="byline">Analyzed through a critical lens</p>
+
+<div class="container py-5">
+  <h1 class="mb-4 text-warning">Hidden Narrative</h1>
+
+  <div class="mb-5">
+    <p class="fs-5 text-light">
+      This is a living document exploring an alternative explanation of recent U.S. events—one that doesn’t rely on chaos or incompetence, but rather on a **silent Continuity of Government (COG) operation** aimed at resisting a soft coup by financial elites.
+    </p>
+    <p class="text-light">
+      The theory suggests that following the 2024 election—manipulated by tech monopolies and billionaires—a stealth response was activated to preserve the Republic from behind the scenes, without public panic or military lockdowns.
+    </p>
+  </div>
+
+  <hr class="text-secondary">
+
+  <div class="mt-5">
+    <h3 class="text-light">Strategic Outline: How It Unfolds</h3>
+
+    <div class="mt-4">
+      <h5 class="text-warning">I. Motivation</h5>
+      <p class="text-light">
+        Elites feared loss of economic and narrative control. They needed a compliant leadership to ensure profit during AI deployment, digital censorship expansion, and property consolidation. Trump’s return, even staged, ensured mass distraction.
+      </p>
+
+      <h5 class="text-warning">II. The Trigger</h5>
+      <p class="text-light">
+        The 2024 election showed signs of irregularities—algorithmic content suppression, narrative alignment, and post-election silence from key intelligence officials like Avril Haines. Something felt coordinated.
+      </p>
+
+      <h5 class="text-warning">III. COG Activation</h5>
+      <p class="text-light">
+        Without triggering mass unrest, Biden’s team enacted COG quietly. Biden’s January 19 statement—“I’m not going anywhere”—signals legal continuity. Key agencies remain professional, despite Trump’s chaotic optics.
+      </p>
+
+      <h5 class="text-warning">IV. Behind the Curtain</h5>
+      <p class="text-light">
+        Secure communications and high-level control continue. Some bases engage in missions with no public explanation. Blackhawk collisions, NATO deaths, and quiet purges of officials point to covert stabilization efforts.
+      </p>
+
+      <h5 class="text-warning">V. Narrative Control</h5>
+      <p class="text-light">
+        Social media algorithms bury whistleblowers. Alternative media faces sudden bans or monetization throttling. Meanwhile, official narratives feel oddly performative, as if no one truly believes them.
+      </p>
+
+      <h5 class="text-warning">VI. What To Watch</h5>
+      <ul class="text-light">
+        <li>Surges in hedge fund home purchases</li>
+        <li>Spike in foreclosures & FHA/VA delinquency</li>
+        <li>Disappearing officials (especially in intelligence/military)</li>
+        <li>Contradictions between federal action and Trump rhetoric</li>
+        <li>Increased use of coded language in Biden's speeches</li>
+      </ul>
+    </div>
   </div>
 </div>
+<hr class="text-secondary mt-5">
 
-<div class="section-title">🧠 Prediction Tracker</div>
+<div class="mt-5">
+  <h3 class="text-warning">What You Can Do</h3>
+  <p class="text-light">
+    We’re not powerless in this. While the elite attempt to consolidate power through media control and economic pressure, history shows that **coordinated, persistent public action** still has an impact.
+  </p>
 
-<div class="tracker-grid">
-  {% for prediction in predictions %}
-    <div class="news-card">
-      <h3>{{ prediction.prediction }}</h3>
-      <p>Status: <strong>{{ prediction.status|title }}</strong></p>
-      {% if prediction.outcome_notes %}
-        <p><em>{{ prediction.outcome_notes }}</em></p>
-      {% endif %}
-      <p class="byline">Added on {{ prediction.added_on|date:"F j, Y" }}</p>
-    </div>
-  {% empty %}
-    <p>No predictions added yet. Check back soon.</p>
-  {% endfor %}
+  <ul class="text-light">
+    <li><strong>Demand transparency:</strong> Keep pressuring local and national leaders for clear, public answers—especially around military actions, intelligence leadership, and federal budgeting.</li>
+    <li><strong>Amplify town halls:</strong> Attend, document, and share key moments. Push elected officials to go on the record, not just behind press releases.</li>
+    <li><strong>Support economic pressure:</strong> Join and promote boycotts of major corporations complicit in AI censorship, housing buyouts, or influence peddling.</li>
+    <li><strong>Build parallel media:</strong> Share independent sources. Start local news threads. Normalize alternative analysis in daily discussion.</li>
+    <li><strong>Fuel the acceleration:</strong> The more organized we become, the harder it is for the narrative to hold. Support protests, connect networks, and protect whistleblowers.</li>
+  </ul>
+
+  <p class="text-light mt-3">
+    These actions are already underway — but to turn the tide, they need to scale. The goal isn’t collapse — it’s clarity, decentralization, and accountability.
+  </p>
 </div>
+
+<hr class="text-secondary mt-5">
+
+<div class="mt-5">
+  <h3 class="text-light">Latest Predictions</h3>
+
+  {% if predictions %}
+    <ul class="list-group mt-3">
+      {% for prediction in predictions %}
+        <li class="list-group-item bg-dark text-light border-secondary">
+          <strong>{{ prediction.title }}</strong><br>
+          <small class="text-muted">{{ prediction.added_on|date:"F j, Y" }}</small>
+          <p class="mt-2">{{ prediction.content|linebreaks }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="text-muted">No predictions available at this time.</p>
+  {% endif %}
+</div>
+
 {% endblock %}

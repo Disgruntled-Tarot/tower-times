@@ -1,73 +1,76 @@
 {% extends 'core/base.html' %}
-
-{% block title %}The Tower Times{% endblock %}
-
 {% block content %}
-<header class="masthead fade-in" style="--delay: 0.1s;">
-  <h1>The Tower Times</h1>
-  <p class="tagline">News from beneath the illusion</p>
-</header>
-
-<section class="intro fade-in" style="--delay: 0.2s;">
-  <p class="fade-in" style="--delay: 0.4s;">
-    I grew up being told not to trust the government, not to believe the news, and to always question what I was shown.  
-    Now I’m watching the very people who used to say that—either go silent, disappear, or nod along to a world unraveling.
-  </p>
-  <p class="fade-in" style="--delay: 0.6s;">
-    The signs are there. We scream that the rich are the problem, yet when the pieces start falling, everyone looks the other way.  
-    We're distracted. Divided. Entertained to death. And somewhere behind the noise, something deeper is breaking.
-  </p>
-  <p class="fade-in" style="--delay: 0.8s;">
-    I didn’t watch the system collapse. I lived inside it while it quietly folded around me—through burnout, debt, grief, and the illusion of success.
-  </p>
-  <p class="fade-in" style="--delay: 1s;">
-    This project isn’t about fear. It’s about clarity.  
-    <strong>The Tower Times</strong> is for anyone waking up mid-collapse—still here, still aware, and ready to look past the veil.
-  </p>
-</section>
-
-<hr class="fade-in" style="--delay: 1.2s;" />
 
 <!-- Hero Section -->
-<section class="hero">
-  <div class="hero-inner">
-    <h1>What You’re Being Shown<br>vs<br>What’s Really Unfolding</h1>
-    <p>Unravel the illusion. Follow the thread.</p>
-    <div class="hero-buttons">
-      <a href="{% url 'displayed' %}" class="path-button">📰 Displayed Narrative</a>
-      <a href="{% url 'hidden' %}" class="path-button">🕯️ Hidden Thread</a>
+<section class="py-5 text-center bg-dark text-white rounded shadow">
+  <div class="container">
+    <h1 class="display-5 fw-bold">What You’re Being Shown<br><small class="text-muted">vs</small><br>What’s Really Unfolding</h1>
+  </div>
+</section>
+
+<!-- Human-Centered Intro -->
+<section class="section-muted-dark text-light py-5 border-top border-bottom border-secondary">
+  <div class="container">
+    <div class="col-lg-10 mx-auto">
+      <p class="fs-5 mb-4">
+        We’ve been told to question the media for decades. Now that something feels off, most people are either tuned out, overwhelmed, or too busy trying to keep up. This project is an attempt to slow things down and look at what’s really going on beneath the headlines.
+      </p>
+      <p class="fs-5">
+        This site splits the narrative. One path shows the surface of what we’re being told. The other follows the deeper patterns and signals that suggest there’s more happening behind the scenes. You choose which story to follow.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- Choose Path Section -->
+<section class="my-5">
+  <div class="container">
+    <h3 class="text-center text-light mb-4">Choose Your Path</h3>
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="card h-100 bg-dark text-white border-primary">
+          <div class="card-body">
+            <h4 class="card-title">Displayed Narrative</h4>
+            <p class="card-text">Biden prepares to attend climate summit in Europe.</p>
+            <a href="{% url 'displayed' %}" class="btn btn-primary">Explore</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100 bg-dark text-white border-warning">
+          <div class="card-body">
+            <h4 class="card-title">Hidden Thread</h4>
+            <p class="card-text">Multiple accidents near strategic airbases raise new questions.</p>
+            <a href="{% url 'hidden' %}" class="btn btn-warning text-dark">Investigate</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- Featured Exposé -->
-<section class="featured-expose">
-  <h2>🧨 Featured Exposé</h2>
-  <h3>The Veil Slips Near D.C.</h3>
-  <p>Was the Blackhawk incident really a training crash? Or something intercepted over protected airspace?</p>
-  <a href="{% url 'hidden' %}" class="expose-button">Read More 🕯️</a>
-</section>
-
-<!-- Dual Prediction Teasers -->
-<section class="prediction-snapshot">
-  <div class="prediction-grid">
-    <div class="prediction-card">
-      <h3>📺 Displayed Narrative</h3>
-      <p>Biden prepares to attend climate summit in Europe.</p>
-      <a href="{% url 'displayed' %}">Explore ➜</a>
-    </div>
-    <div class="prediction-card">
-      <h3>🔍 Hidden Thread</h3>
-      <p>Multiple "accidents" near strategic airbases signal COG activity.</p>
-      <a href="{% url 'hidden' %}">Investigate ➜</a>
+<section class="my-5">
+  <div class="container">
+    <div class="card bg-secondary text-white border-light shadow-sm">
+      <div class="card-body">
+        <h2 class="card-title">Featured Exposé</h2>
+        <h5 class="card-subtitle mb-2 text-danger">The Veil Slips Near D.C.</h5>
+        <p class="card-text">Was the Blackhawk incident really a training crash or something intercepted over protected airspace?</p>
+        <a href="{% url 'hidden' %}" class="btn btn-outline-light">Read More</a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Tarot Quote Rotator -->
-<section class="quote-rotator">
-  <p id="quote-text">“The Tower does not fall without revealing the truth beneath.”</p>
+<!-- Quote -->
+<section class="text-center py-4 mt-5 border-top border-secondary">
+  <div class="container">
+    <blockquote class="blockquote text-light">
+      <p class="mb-0">The Tower doesn’t fall without revealing what it was built to hide.</p>
+    </blockquote>
+  </div>
 </section>
 
 {% endblock %}
-

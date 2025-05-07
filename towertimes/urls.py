@@ -26,8 +26,9 @@ urlpatterns = [
     path('tools/', views.tools, name='tools'),
     path('messages/', views.messages, name='messages'),
     path('reading-table/<slug:slug>/', views.post_detail, name='post_detail'),
-    path('veil/', views.veil, name='veil'),
-    path('', views.home, name='home'),
     path('displayed/', views.displayed_view, name='displayed'),
     path('hidden/', views.hidden_view, name='hidden'),
+    path('exposes/', views.exposes, name='exposes'),
+    path('exposes/<slug:slug>/', views.expose_detail, name='expose_detail'),
+    path('about/', views.about, name='about'),
 ]
